@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Padicure</string>
+    <string name="label_name">Name</string>
+    <string name="label_name_input">Your Name</string>
+    <string name="label_email">Email</string>
+    <string name="label_email_input">Your Email</string>
+    <string name="label_password">Password</string>
+    <string name="label_password_input">Your Password</string>
+    <string name="label_login">Login\n</string>
+    <string name="label_register_question">Don\'t have an account?</string>
+    <string name="label_register">Register</string>
 </resources>
