@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "500802068757",
+    "project_id": "padicure-92624",
+    "storage_bucket": "padicure-92624.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:500802068757:android:6e1a9affc7f945e142891c",
+        "android_client_info": {
+          "package_name": "com.captsone.padicure"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "500802068757-la48r1g3a3rm0fr0bvl9v12bjpa9ta82.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyEPf1C796NiBszli5xZ2KFNQJeKdt6OI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "500802068757-la48r1g3a3rm0fr0bvl9v12bjpa9ta82.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
