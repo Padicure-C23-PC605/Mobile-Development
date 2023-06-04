@@ -11,6 +11,10 @@ data class SignUpUser(
     val password: String
 )
 
-
+data class UserData(
+    val name: String,
+    val email: String,
+    val photoUrl: String
+)
 
 

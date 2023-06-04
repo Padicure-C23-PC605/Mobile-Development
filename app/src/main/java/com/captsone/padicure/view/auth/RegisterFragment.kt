@@ -51,7 +51,7 @@ class RegisterFragment : Fragment(), Screen {
             )
         }
         viewModel.errorMessage.observe(viewLifecycleOwner) {
-            showError(it)
+            showMessage(it)
         }
 
         viewModel.isLoading.observe(viewLifecycleOwner) {
@@ -70,7 +70,7 @@ class RegisterFragment : Fragment(), Screen {
         loadingBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
-    override fun showError(message: String) {
+    override fun showMessage(message: String) {
         Toast.makeText(context, message, Toast.LENGTH_LONG).show()
         Log.d("Error", message)
     }
