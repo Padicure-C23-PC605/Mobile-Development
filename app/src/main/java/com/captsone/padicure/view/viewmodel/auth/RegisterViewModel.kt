@@ -29,7 +29,7 @@ class RegisterViewModel @Inject constructor(
     fun register(name: String, email: String, password: String){
         viewModelScope.launch {
             _isLoading.value = true
-            val response = repository.register(
+            var response = repository.register(
                 SignUpUser(
                     name, email, password
                 )
@@ -41,6 +41,15 @@ class RegisterViewModel @Inject constructor(
                 is Response.IsError -> {
                     _errorMessage.value = response.message
                 }
+            }
+            response = repository.setUserData(
+                name = name, "https://picsum.photos/200/300"
+            )
+            when (response) {
+                is Response.IsError -> {
+                    _errorMessage.value = response.message
+                }
+                else -> {}
             }
             _isLoading.value = false
         }

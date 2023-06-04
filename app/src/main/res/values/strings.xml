@@ -9,4 +9,11 @@
     <string name="label_login">Login\n</string>
     <string name="label_register_question">Don\'t have an account?</string>
     <string name="label_register">Register</string>
+    <string name="label_home">Home\n</string>
+    <string name="dummy_name">Andre Eka Putra</string>
+    <string name="settings">Settings</string>
+    <string name="terms">Terms and Conditions</string>
+    <string name="logout">Logout</string>
+    <string name="soon">Coming Soon</string>
+    <string name="not_available">Coming Soon</string>
 </resources>
