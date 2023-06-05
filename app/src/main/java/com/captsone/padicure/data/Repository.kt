@@ -3,7 +3,8 @@ package com.captsone.padicure.data
 import android.net.Uri
 import android.util.Log
 import androidx.core.net.toUri
-import com.captsone.padicure.Utils.extractErrorMessage
+import com.captsone.padicure.utils.Utils.dummyData
+import com.captsone.padicure.utils.Utils.extractErrorMessage
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
@@ -62,7 +63,8 @@ class Repository @Inject constructor(
         return suspendCoroutine {continuation ->
             val urlPhoto = auth.currentUser?.photoUrl ?: "https://picsum.photos/200/300".toUri()
             val response = Response.IsSuccessful(
-                UserData(auth.currentUser?.displayName ?: "Empty",
+                UserData(auth.currentUser?.uid ?: "Empty",
+                    auth.currentUser?.displayName ?: "Empty",
                     auth.currentUser?.email ?: "Empty",
                     urlPhoto.toString())
             )
@@ -95,6 +97,13 @@ class Repository @Inject constructor(
             continuation ->
             auth.signOut()
             val response = Response.IsSuccessful("Berhasil Logout")
+            continuation.resume(response)
+        }
+    }
+    override suspend fun getListData(): Response {
+        return suspendCoroutine {
+            continuation ->
+            val response = Response.IsSuccessful(ListItemData(dummyData))
             continuation.resume(response)
         }
     }

@@ -187,6 +187,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:elevation="8dp" />
+        android:elevation="8dp"
+        android:visibility="gone"/>
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/editButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/button_edit"
+        app:layout_constraintBottom_toTopOf="@+id/profileName"
+        app:layout_constraintEnd_toEndOf="@+id/profilePict"
+        app:layout_constraintStart_toStartOf="@+id/profilePict"
+        android:clickable="true"
+        android:focusable="true"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

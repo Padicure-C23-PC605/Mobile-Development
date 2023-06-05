@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
@@ -24,6 +25,7 @@ class ProfileFragment : Fragment(), Screen {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
     private val viewModel: ProfileViewModel by viewModels()
+    private lateinit var loadingBar: ProgressBar
 
 
     override fun onCreateView(
@@ -32,6 +34,7 @@ class ProfileFragment : Fragment(), Screen {
     ): View {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val view = binding.root
+        loadingBar = binding.loadingBar
         return (view)
     }
 
@@ -59,10 +62,13 @@ class ProfileFragment : Fragment(), Screen {
         binding.cardTerms.setOnClickListener {
             showMessage(resources.getString(R.string.not_available))
         }
+        binding.editButton.setOnClickListener {
+            showMessage(resources.getString(R.string.not_available))
+        }
     }
 
     override fun showLoading(isLoading: Boolean) {
-        TODO("Not yet implemented")
+        loadingBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
     override fun showMessage(message: String) {
