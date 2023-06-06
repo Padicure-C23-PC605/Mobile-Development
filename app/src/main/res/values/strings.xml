@@ -23,4 +23,8 @@
     <string name="app_slogan">Grow and be Healthy</string>
     <string name="app_slogan_2">Take a picture, Identify, and Cure</string>
     <string name="label_start">Start Now</string>
+    <string name="no_pict_available">Belum ada gambar yang bisa diidentifikasi</string>
+    <string name="choose_pict">Pilih satu untuk menambahkan gambar</string>
+    <string name="label_camera">Camera</string>
+    <string name="label_gallery">Gallery</string>
 </resources>
