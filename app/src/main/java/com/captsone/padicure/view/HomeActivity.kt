@@ -1,10 +1,8 @@
 package com.captsone.padicure.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.NavHostController
 import androidx.navigation.fragment.NavHostFragment
 import com.captsone.padicure.R
 import com.captsone.padicure.databinding.ActivityHomeBinding
@@ -26,7 +24,8 @@ class HomeActivity : AppCompatActivity() {
         bottomAppBar = binding.bottomAppBar
         setBottomAppBar()
     }
-    private fun setBottomAppBar(){
+
+    private fun setBottomAppBar() {
         navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragmentContainerHome) as NavHostFragment
         navHostMainController = navHostFragment.navController

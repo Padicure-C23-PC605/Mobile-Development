@@ -1,6 +1,7 @@
 package com.captsone.padicure.data
 
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 data class SignInUser(
@@ -23,14 +24,22 @@ data class UserData(
 
 @Parcelize
 data class ItemData(
+    @SerializedName("id")
+    val id: Int,
+    @SerializedName("image")
     val photoUrl: String,
+    @SerializedName("name")
     val name: String,
+    @SerializedName("description")
     val description: String,
+    @SerializedName("detail")
     val detail: String,
+    @SerializedName("howtocure")
     val tutorial: String
-): Parcelable
+) : Parcelable
 
 data class ListItemData(
+    @SerializedName("response")
     val list: List<ItemData>
 )
 

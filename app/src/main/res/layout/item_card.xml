@@ -18,6 +18,7 @@
             android:layout_height="80dp"
             android:layout_margin="10dp"
             android:src="@drawable/base_picts"
+            android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -31,22 +32,12 @@
             android:text="@string/dummy_name"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/itemDesc"
+            app:layout_constraintBottom_toBottomOf="@+id/itemPicture"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/itemPicture"
             app:layout_constraintTop_toTopOf="@+id/itemPicture"
             app:layout_constraintVertical_chainStyle="packed" />
 
-        <TextView
-            android:id="@+id/itemDesc"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/dummy_name"
-            android:textSize="11sp"
-            app:layout_constraintBottom_toBottomOf="@+id/itemPicture"
-            app:layout_constraintEnd_toEndOf="@+id/itemName"
-            app:layout_constraintStart_toStartOf="@id/itemName"
-            app:layout_constraintTop_toBottomOf="@+id/itemName" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>

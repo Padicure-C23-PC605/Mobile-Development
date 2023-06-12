@@ -3,6 +3,7 @@ package com.captsone.padicure.utils.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.captsone.padicure.data.ItemData
 import com.captsone.padicure.databinding.ItemCardBinding
 
@@ -39,7 +40,7 @@ class RecyclerViewAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: ItemData) {
             binding.itemName.text = item.name
+            Glide.with(binding.root).load(item.photoUrl).into(binding.itemPicture)
         }
     }
-
 }

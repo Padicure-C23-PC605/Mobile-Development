@@ -9,4 +9,5 @@ interface RepositoryResource {
     suspend fun setUserData(name: String, profilePictURL: String): Response
     suspend fun logout(): Response
     suspend fun getListData(): Response
+    suspend fun getDetailData(id: Int): Response
 }

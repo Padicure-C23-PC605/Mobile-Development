@@ -10,15 +10,15 @@ object Utils {
         return message
     }
 
-    val dummyData = listOf(
-        ItemData("https://picsum.photos/200/300", "Leafblast", "Jamur Pyricularia oryzae pada daun padi.",
-        "LoremIpsum",""),
-        ItemData("https://picsum.photos/200/300", "Leafblast", "Jamur Pyricularia oryzae pada daun padi.",
-            "LoremIpsum",""),
-        ItemData("https://picsum.photos/200/300", "Leafblast", "Jamur Pyricularia oryzae pada daun padi.",
-            "LoremIpsum",""),
-        ItemData("https://picsum.photos/200/300", "Leafblast", "Jamur Pyricularia oryzae pada daun padi.",
-            "LoremIpsum",""),
-    )
+//    val dummyData = listOf(
+//        ItemData("https://picsum.photos/200/300", "Leafblast", "Jamur Pyricularia oryzae pada daun padi.",
+//        "LoremIpsum",""),
+//        ItemData("https://picsum.photos/200/300", "Leafblast", "Jamur Pyricularia oryzae pada daun padi.",
+//            "LoremIpsum",""),
+//        ItemData("https://picsum.photos/200/300", "Leafblast", "Jamur Pyricularia oryzae pada daun padi.",
+//            "LoremIpsum",""),
+//        ItemData("https://picsum.photos/200/300", "Leafblast", "Jamur Pyricularia oryzae pada daun padi.",
+//            "LoremIpsum",""),
+//    )
 
 }

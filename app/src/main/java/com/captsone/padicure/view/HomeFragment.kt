@@ -36,7 +36,7 @@ class HomeFragment : Fragment(), Screen {
             listOf()
         ) {
             Intent(activity, DetailActivity::class.java).apply {
-                this.putExtra("data", it)
+                this.putExtra("data", it.id)
                 startActivity(this)
             }
         }
@@ -49,6 +49,9 @@ class HomeFragment : Fragment(), Screen {
         super.onActivityCreated(savedInstanceState)
         viewModel.listData.observe(viewLifecycleOwner){
             recyclerViewAdapter.updateData(it.list)
+        }
+        viewModel.message.observe(viewLifecycleOwner){
+            showMessage(it)
         }
     }
 

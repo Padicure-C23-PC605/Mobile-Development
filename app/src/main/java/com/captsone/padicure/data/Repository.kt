@@ -3,7 +3,6 @@ package com.captsone.padicure.data
 import android.net.Uri
 import android.util.Log
 import androidx.core.net.toUri
-import com.captsone.padicure.utils.Utils.dummyData
 import com.captsone.padicure.utils.Utils.extractErrorMessage
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
@@ -15,7 +14,8 @@ import kotlin.coroutines.suspendCoroutine
 
 class Repository @Inject constructor(
     private val auth: FirebaseAuth,
-    private val fireStore: FirebaseFirestore
+    private val fireStore: FirebaseFirestore,
+    private val apiService: PadicureApiService
 ) : RepositoryResource {
     override suspend fun login(user: SignInUser): Response {
         return suspendCoroutine { continuation ->
@@ -101,10 +101,20 @@ class Repository @Inject constructor(
         }
     }
     override suspend fun getListData(): Response {
-        return suspendCoroutine {
-            continuation ->
-            val response = Response.IsSuccessful(ListItemData(dummyData))
-            continuation.resume(response)
+        return try{
+            val response = apiService.getListData()
+            Response.IsSuccessful(response)
+        } catch (exception: Exception){
+            Response.IsError(true, exception.message.toString())
+        }
+    }
+
+    override suspend fun getDetailData(id: Int): Response {
+        return try {
+            val response = apiService.getDetailData(id)
+            Response.IsSuccessful(response)
+        } catch (exception: Exception){
+            Response.IsError(true, exception.message.toString())
         }
     }
 }
