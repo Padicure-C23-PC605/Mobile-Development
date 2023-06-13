@@ -23,16 +23,19 @@ class AppModule {
     fun provideFireBase(): FirebaseAuth {
         return FirebaseAuth.getInstance()
     }
+
     @Provides
     @Singleton
-    fun provideFireStore(): FirebaseFirestore{
+    fun provideFireStore(): FirebaseFirestore {
         return Firebase.firestore
     }
+
     @Provides
     @Singleton
     fun providePadicureApiService(retrofit: Retrofit): PadicureApiService {
         return retrofit.create(PadicureApiService::class.java)
     }
+
     @Provides
     @Singleton
     fun provideRetrofit(): Retrofit {

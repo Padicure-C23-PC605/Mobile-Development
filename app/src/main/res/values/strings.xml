@@ -27,4 +27,8 @@
     <string name="choose_pict">Pilih satu untuk menambahkan gambar</string>
     <string name="label_camera">Camera</string>
     <string name="label_gallery">Gallery</string>
+    <string name="label_teridentifikasi">Padi ini \nteridentifikasi\npenyakit</string>
+    <string name="penyakit">Leafblast</string>
+    <string name="label_akurasi">Akurasi</string>
+    <string name="dummy_akurasi">75%</string>
 </resources>

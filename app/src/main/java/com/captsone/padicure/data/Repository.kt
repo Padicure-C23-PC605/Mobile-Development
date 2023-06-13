@@ -8,6 +8,7 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.firestore.FirebaseFirestore
+import okhttp3.MultipartBody
 import javax.inject.Inject
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
@@ -112,6 +113,18 @@ class Repository @Inject constructor(
     override suspend fun getDetailData(id: Int): Response {
         return try {
             val response = apiService.getDetailData(id)
+            Response.IsSuccessful(response)
+        } catch (exception: Exception){
+            Response.IsError(true, exception.message.toString())
+        }
+    }
+
+    override suspend fun scanData(photo: MultipartBody.Part): Response {
+        return try{
+            val response = apiService.predictPicture(
+                "https://predict-dqo6vd65jq-et.a.run.app/predict",
+                photo
+            )
             Response.IsSuccessful(response)
         } catch (exception: Exception){
             Response.IsError(true, exception.message.toString())

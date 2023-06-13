@@ -43,3 +43,12 @@ data class ListItemData(
     val list: List<ItemData>
 )
 
+data class ScannedData(
+    @SerializedName("confidence")
+    val percentage: String,
+    @SerializedName("how_to_cure")
+    val tutorial: String,
+    @SerializedName("predicted_class")
+    val predicted: String
+)
+
