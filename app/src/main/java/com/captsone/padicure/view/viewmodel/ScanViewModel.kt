@@ -52,7 +52,6 @@ class ScanViewModel @Inject constructor(
         _file.value = file
         scanData()
     }
-
     private fun scanData(){
         try{
             val requestImageFile = _file.value!!.asRequestBody("image/jpeg".toMediaType())

@@ -28,9 +28,9 @@ class HomeActivity : AppCompatActivity() {
     private fun setBottomAppBar() {
         navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragmentContainerHome) as NavHostFragment
-        navHostMainController = navHostFragment.navController
         bottomAppBar.setOnItemSelectedListener { menuItem ->
-            val destinationId = when (menuItem.itemId) {
+        navHostMainController = navHostFragment.navController
+          val destinationId = when (menuItem.itemId) {
                 R.id.homeFragment -> R.id.homeFragment
                 R.id.scanFragment -> R.id.scanFragment
                 R.id.profileFragment -> R.id.profileFragment

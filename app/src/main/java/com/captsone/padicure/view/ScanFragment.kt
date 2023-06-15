@@ -45,6 +45,7 @@ class ScanFragment : Fragment(), Screen {
             val selectedImg = result.data?.data as Uri
             selectedImg.let { uri ->
                 viewModel.setFile(uri, requireContext())
+                binding.padiPict.setImageURI(uri)
             }
         }
     }
