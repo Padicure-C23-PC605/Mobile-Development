@@ -3,18 +3,20 @@ package com.captsone.padicure.data
 import android.net.Uri
 import android.util.Log
 import androidx.core.net.toUri
-import com.captsone.padicure.Utils.extractErrorMessage
+import com.captsone.padicure.utils.Utils.extractErrorMessage
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.firestore.FirebaseFirestore
+import okhttp3.MultipartBody
 import javax.inject.Inject
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
 class Repository @Inject constructor(
     private val auth: FirebaseAuth,
-    private val fireStore: FirebaseFirestore
+    private val fireStore: FirebaseFirestore,
+    private val apiService: PadicureApiService
 ) : RepositoryResource {
     override suspend fun login(user: SignInUser): Response {
         return suspendCoroutine { continuation ->
@@ -62,7 +64,8 @@ class Repository @Inject constructor(
         return suspendCoroutine {continuation ->
             val urlPhoto = auth.currentUser?.photoUrl ?: "https://picsum.photos/200/300".toUri()
             val response = Response.IsSuccessful(
-                UserData(auth.currentUser?.displayName ?: "Empty",
+                UserData(auth.currentUser?.uid ?: "Empty",
+                    auth.currentUser?.displayName ?: "Empty",
                     auth.currentUser?.email ?: "Empty",
                     urlPhoto.toString())
             )
@@ -96,6 +99,35 @@ class Repository @Inject constructor(
             auth.signOut()
             val response = Response.IsSuccessful("Berhasil Logout")
             continuation.resume(response)
+        }
+    }
+    override suspend fun getListData(): Response {
+        return try{
+            val response = apiService.getListData()
+            Response.IsSuccessful(response)
+        } catch (exception: Exception){
+            Response.IsError(true, exception.message.toString())
+        }
+    }
+
+    override suspend fun getDetailData(id: Int): Response {
+        return try {
+            val response = apiService.getDetailData(id)
+            Response.IsSuccessful(response)
+        } catch (exception: Exception){
+            Response.IsError(true, exception.message.toString())
+        }
+    }
+
+    override suspend fun scanData(photo: MultipartBody.Part): Response {
+        return try{
+            val response = apiService.predictPicture(
+                "https://predict-dqo6vd65jq-et.a.run.app/predict",
+                photo
+            )
+            Response.IsSuccessful(response)
+        } catch (exception: Exception){
+            Response.IsError(true, exception.message.toString())
         }
     }
 }

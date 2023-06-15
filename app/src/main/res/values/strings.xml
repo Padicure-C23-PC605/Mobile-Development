@@ -16,4 +16,19 @@
     <string name="logout">Logout</string>
     <string name="soon">Coming Soon</string>
     <string name="not_available">Coming Soon</string>
+    <string name="label_detail">Detail</string>
+    <string name="label_apa">Apa itu?</string>
+    <string name="dummy_paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies nulla vel leo scelerisque, in ultrices nisi auctor. Ut hendrerit quam orci, eget lobortis purus finibus tincidunt. Phasellus malesuada ultricies eros, eget finibus sem sagittis in. Nam vehicula urna at pharetra dapibus. Donec at arcu at felis maximus venenatis id non libero. Nunc sed consectetur erat. Mauris ut ultricies justo. Quisque posuere erat ornare, pellentesque sem ut, rutrum nisl. Maecenas pulvinar lectus ante, ac luctus arcu malesuada in.</string>
+    <string name="label_tutorial">Bagaimana mengatasinya?</string>
+    <string name="app_slogan">Grow and be Healthy</string>
+    <string name="app_slogan_2">Take a picture, Identify, and Cure</string>
+    <string name="label_start">Start Now</string>
+    <string name="no_pict_available">Belum ada gambar yang bisa diidentifikasi</string>
+    <string name="choose_pict">Pilih satu untuk menambahkan gambar</string>
+    <string name="label_camera">Camera</string>
+    <string name="label_gallery">Gallery</string>
+    <string name="label_teridentifikasi">Padi ini \nteridentifikasi\npenyakit</string>
+    <string name="penyakit">Leafblast</string>
+    <string name="label_akurasi">Akurasi</string>
+    <string name="dummy_akurasi">75%</string>
 </resources>

@@ -1,40 +1,42 @@
 package com.captsone.padicure.view.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.captsone.padicure.data.ListItemData
+import com.captsone.padicure.data.ItemData
 import com.captsone.padicure.data.Repository
 import com.captsone.padicure.data.Response
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel
-@Inject constructor(private val repository: Repository) : ViewModel() {
-    private val _listData = MutableLiveData<ListItemData>()
-    val listData: LiveData<ListItemData> = _listData
-
+class DetailViewModel @Inject constructor(
+    private val repository: Repository
+) : ViewModel() {
     private val _message = MutableLiveData<String>()
     val message: LiveData<String> = _message
-    init {
-        getListData()
-    }
-    private fun getListData(){
+
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
+
+    private val _data = MutableLiveData<ItemData>()
+    val data: LiveData<ItemData> = _data
+
+    fun getItemData(id: Int) {
         viewModelScope.launch {
-            when(val response = repository.getListData()){
-                is Response.IsSuccessful<*> ->{
-                    _listData.value =  response.data as ListItemData
+            _isLoading.value = true
+            when (val response = repository.getDetailData(id)) {
+                is Response.IsSuccessful<*> -> {
+                    _data.value = response.data as ItemData
                 }
+
                 is Response.IsError -> {
                     _message.value = response.message
                 }
             }
+            _isLoading.value = false
         }
-
     }
 }
